@@ -2,7 +2,7 @@ package ru.josanr;
 
 
 public class Anagram {
-    public String inverseWord(String word) {
+    private String invertWord(String word) {
 
         char[] characterList = word.toCharArray();
         char[] resultList = new char[characterList.length];
@@ -28,5 +28,16 @@ public class Anagram {
             }
         }
         return new String(resultList);
+    }
+
+    public String invertWords(String words) {
+        var invertedPhrase = new StringBuilder();
+        for(String word : words.split(" ")) {
+            String invertedWord = this.invertWord(word);
+            invertedPhrase.append(invertedWord);
+            invertedPhrase.append(" ");
+        }
+
+        return invertedPhrase.toString().trim();
     }
 }
