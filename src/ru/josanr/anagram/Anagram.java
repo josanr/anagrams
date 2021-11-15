@@ -1,8 +1,20 @@
-package ru.josanr;
+package ru.josanr.anagram;
 
 
 public class Anagram {
-    private String invertWord(String word) {
+
+    public String invertWords(final String words) {
+        var invertedPhrase = new StringBuilder();
+        for (String word : words.split(" ")) {
+            String invertedWord = this.invertWord(word);
+            invertedPhrase.append(invertedWord);
+            invertedPhrase.append(" ");
+        }
+
+        return invertedPhrase.toString().trim();
+    }
+
+    private String invertWord(final String word) {
 
         char[] characterList = word.toCharArray();
         char[] resultList = new char[characterList.length];
@@ -17,7 +29,7 @@ public class Anagram {
             if (!Character.isAlphabetic(leftSymbol)) {
                 resultList[leftIndex] = leftSymbol;
                 leftIndex++;
-            }else if(!Character.isAlphabetic(rightSymbol)){
+            } else if (!Character.isAlphabetic(rightSymbol)) {
                 resultList[rightIndex] = rightSymbol;
                 rightIndex--;
             } else {
@@ -28,16 +40,5 @@ public class Anagram {
             }
         }
         return new String(resultList);
-    }
-
-    public String invertWords(String words) {
-        var invertedPhrase = new StringBuilder();
-        for(String word : words.split(" ")) {
-            String invertedWord = this.invertWord(word);
-            invertedPhrase.append(invertedWord);
-            invertedPhrase.append(" ");
-        }
-
-        return invertedPhrase.toString().trim();
     }
 }
