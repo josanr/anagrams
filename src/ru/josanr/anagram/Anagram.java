@@ -15,6 +15,9 @@ public class Anagram {
     }
 
     private String invertWord(final String word) {
+        if (word.length() <= 1) {
+            return word;
+        }
 
         char[] characterList = word.toCharArray();
         char[] resultList = new char[characterList.length];
@@ -22,7 +25,7 @@ public class Anagram {
         int rightIndex = characterList.length - 1;
         int leftIndex = 0;
 
-        while (leftIndex < rightIndex) {
+        while (leftIndex <= rightIndex) {
             char leftSymbol = characterList[leftIndex];
             char rightSymbol = characterList[rightIndex];
 
