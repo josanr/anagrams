@@ -10,7 +10,6 @@ public class TestAnagram {
 
     private final Anagram anagram = new Anagram();
 
-
     @Test
     void invertWords_shouldThrowException_whenParameterNull() {
         Assertions.assertThrows(NullPointerException.class, () -> {
