@@ -1,4 +1,4 @@
-package ru.josanr.anagram.tests;
+package anagram;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -10,6 +10,7 @@ import ru.josanr.anagram.Anagram;
 public class TestAnagram {
 
     private final Anagram anagram = new Anagram();
+
 
     @Test
     void invertWords_shouldThrowException_whenParameterNull() {
